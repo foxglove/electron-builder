@@ -7,6 +7,9 @@
     "**/package.json": "pnpm lint-deps",
     "test/src/helpers/checkDeps.ts": "pnpm lint-deps"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "//": "do not wrap into single quotes - windows doesn't unwrap arg in this case",
     "compile": "tsc --build",
