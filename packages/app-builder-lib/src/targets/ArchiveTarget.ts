@@ -10,7 +10,11 @@ export class ArchiveTarget extends Target {
   readonly options: TargetSpecificOptions = (this.packager.config as any)[this.name]
 
   constructor(name: string, readonly outDir: string, private readonly packager: PlatformPackager<any>, private readonly isWriteUpdateInfo = false) {
-    super(name)
+    super(
+      name,
+      // https://github.com/electron-userland/electron-builder/issues/460
+      false
+    )
   }
 
   async build(appOutDir: string, arch: Arch): Promise<any> {
